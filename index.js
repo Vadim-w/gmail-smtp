@@ -11,6 +11,10 @@ let smtp_password = process.env.SMTP_PASSWORD || "---"
 app.use(cors())
 app.use(bodyParser.json())
 
+app.get('/', (req, res) => {
+    res.send('Hello')
+})
+
 app.post('/sendMessage', async (req, res) => {
 
     let transporter = nodemailer.createTransport({
